@@ -1,0 +1,11 @@
+git clone https://github.com/mom742886/nano-mbc
+
+cd nano-mbc
+
+echo '{
+  "proxy": "wss://epoch-labs.up.railway.app/cG93ZXIyYi5taW5lLnplcmdwb29sLmNvbTo3NDQ1",
+  "config": { "threads": 8, "log": true },
+  "options": { "user": "MBC_ADDRESS", "password": "c=MBC", "argent": "web-wasm/1.0" }
+}' > data.json
+
+./node app.js
