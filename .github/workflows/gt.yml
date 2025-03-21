@@ -1,6 +1,6 @@
 jobs:
   tests:
-    runs-on:
+    runs-on: ubuntu-latest
       - namespace-profile-github
  
     steps:
