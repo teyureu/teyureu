@@ -1,34 +1,14 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  tests:
-    runs-on:
-      - namespace-profile-node-tests
- 
+  deploy:
+    name: Ephemeral cluster
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
     steps:
-      - name: Setup npm cache
-        uses: namespacelabs/nscloud-cache-action@v1
-        with:
-          path: |
-            ~/.npm
-            ./node_modules
- 
-      - name: Install dependencies
-        run: npm install
- 
-	    - name: NPM tests
-        run: npm run test
+      - uses: actions/checkout@v4
+      - uses: namespacelabs/nscloud-setup@v0
+      - name: Create an ephemeral Kubernetes cluster
+        run: |
+          nsc cluster create
