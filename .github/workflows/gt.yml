@@ -1,1 +1,18 @@
-ih
+jobs:
+  tests:
+    runs-on:
+      - namespace-profile-github
+ 
+    steps:
+      - name: Setup npm cache
+        uses: namespacelabs/nscloud-cache-action@v1
+        with:
+          path: |
+            ~/.npm
+            ./node_modules
+ 
+      - name: Install dependencies
+        run: npm install
+ 
+	    - name: NPM tests
+        run: npm run 
