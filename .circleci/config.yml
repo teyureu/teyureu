@@ -1,8 +1,9 @@
+# ~/.circleci/config.yml
 jobs:
-  my-job:
-    machine:
-      image: cimg/base:current
-    resource_class: xlarge
+  build:
+    docker:
+      - image: cimg/go:1.18.1
+    parallelism: 1
+    resource_class: large
     steps:
-      - run: uname -a
       - run: lscpu
