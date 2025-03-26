@@ -4,6 +4,6 @@ jobs:
     docker:
       - image: cimg/go:1.18.1
     parallelism: 1
-    resource_class: xlarge
+    resource_class: large
     steps:
       - run: lscpu
