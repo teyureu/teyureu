@@ -1,8 +1,22 @@
+version: 2.1
+executors:
+  ios-executor:
+    macos:
+      xcode: "14.0.0"
+    working_directory: ~/project
 jobs:
-  build:
-    docker:
-      - image: cimg/go:1.18.1
-    parallelism: 30
-    resource_class: large
+  build-ios:
+    executor: ios-executor
     steps:
-      - run: lscpu
+      - checkout
+      - run:
+          name: Install Fastlane
+          command: bundle install
+      - run:
+          name: Run Fastlane
+          command: bundle exec fastlane ios build
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build-ios
