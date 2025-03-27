@@ -2,7 +2,7 @@ version: 2.1
 executors:
   ios-executor:
     macos:
-      xcode: "14.0.0"
+      xcode: "14.0.1"  # Updated to the latest Xcode image
     working_directory: ~/project
 jobs:
   build-ios:
@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Install Fastlane
-          command: lscpu
+          command: bundle install
       - run:
           name: Run Fastlane
           command: bundle exec fastlane ios build
